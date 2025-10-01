@@ -36,14 +36,15 @@ while (is_sentence(user_sentence) == False):
     user_input = input("Enter a sentence: ")
     
 {
-    def is_sentence(text):
+    import string
+
+def is_sentence(text):
     return (
-        len(text) > 0 
-        and text[0].isupper() 
+        len(text) > 0
+        and text[0].isupper()
         and text[-1] in ".?!"
         and any(char.isalpha() for char in text)
     )
-
 while True:
     sentence = input("Enter a sentence: ")
     if is_sentence(sentence):
@@ -52,6 +53,7 @@ while True:
         print("Error: Please enter a valid sentence (start with a capital letter, contain words, and end with . ? or !).")
 
 words_list = sentence.split()
+words_list = [word.strip(string.punctuation).lower() for word in words_list]
 words = []
 frequencies = []
 
@@ -59,11 +61,10 @@ for word in words_list:
     if word in words:
         index = words.index(word)
         frequencies[index] += 1
-    else:
+     else:
         words.append(word)
         frequencies.append(1)
 
-print("Word Frequencies:")
 for i in range(len(words)):
     print(f"{words[i]}: {frequencies[i]}")
 }
