@@ -50,7 +50,7 @@ while True:
     if is_sentence(sentence):
         break
     else:
-        print("Error: Please enter a valid sentence (start with a capital letter, contain words, and end with . ? or !).")
+        print("Invalid Input. Please enter a valid sentence (Starts with a capital letter, contains at least one word and ends with a punctuation mark).")
 
 words_list = sentence.split()
 words_list = [word.strip(string.punctuation).lower() for word in words_list]
